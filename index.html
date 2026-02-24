@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfolio | Your Name</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --primary: #3b82f6;
+  --text: #f1f5f9;
+}
+
+body.light {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --primary: #2563eb;
+  --text: #0f172a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.3s;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10%;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  background: var(--bg);
+  z-index: 1000;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: var(--primary);
+}
+
+.toggle-btn {
+  background: var(--primary);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+section {
+  padding: 100px 10%;
+  min-height: 100vh;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero h1 {
+  font-size: 48px;
+}
+
+.hero span {
+  color: var(--primary);
+}
+
+.hero p {
+  margin: 20px 0;
+}
+
+.btn {
+  background: var(--primary);
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+}
+
+.hero-img img {
+  width: 300px;
+  border-radius: 50%;
+}
+
+.card {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 15px;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.skills .bar {
+  background: #334155;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.skills .progress {
+  background: var(--primary);
+  height: 10px;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact input, .contact textarea {
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: var(--card);
+}
+
+@media(max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-img {
+    margin-top: 30px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>MyPortfolio</h2>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <button class="toggle-btn" onclick="toggleMode()">Mode</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Halo, Saya <span>Nama Kamu</span></h1>
+    <p>Web Developer | UI/UX Designer | Tech Enthusiast</p>
+    <a href="#projects" class="btn">Lihat Project</a>
+  </div>
+  <div class="hero-img">
+    <img src="https://via.placeholder.com/300" alt="profile">
+  </div>
+</section>
+
+<section id="about">
+  <h2>Tentang Saya</h2>
+  <div class="card">
+    <p>Saya adalah developer yang fokus pada pembuatan website modern, cepat, dan responsif. Berpengalaman dalam membangun sistem berbasis web menggunakan teknologi terkini.</p>
+  </div>
+</section>
+
+<section id="skills" class="skills">
+  <h2>Skills</h2>
+  <div class="card">
+    <p>HTML</p>
+    <div class="bar"><div class="progress" style="width:90%"></div></div>
+
+    <p>CSS</p>
+    <div class="bar"><div class="progress" style="width:85%"></div></div>
+
+    <p>JavaScript</p>
+    <div class="bar"><div class="progress" style="width:80%"></div></div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="grid grid-3">
+    <div class="card">
+      <h3>E-Commerce Website</h3>
+      <p>Platform belanja online dengan sistem pembayaran terintegrasi.</p>
+    </div>
+    <div class="card">
+      <h3>Company Profile</h3>
+      <p>Website profesional untuk meningkatkan branding perusahaan.</p>
+    </div>
+    <div class="card">
+      <h3>Dashboard Admin</h3>
+      <p>Sistem monitoring data dengan visualisasi interaktif.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact</h2>
+  <div class="card">
+    <form>
+      <input type="text" placeholder="Nama" required>
+      <input type="email" placeholder="Email" required>
+      <textarea rows="5" placeholder="Pesan"></textarea>
+      <button class="btn" type="submit">Kirim</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Nama Kamu. All Rights Reserved.</p>
+</footer>
+
+<script>
+function toggleMode() {
+  document.body.classList.toggle("light");
+}
+</script>
+
+</body>
+</html>
